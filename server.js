@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-require('./server/routes/person.routes')(app);
+require('./server/routes/projectmanager.routes')(app);
 
 app.listen( port, () => { console.log(`Listening at Port ${port}`) } )
 

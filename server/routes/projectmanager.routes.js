@@ -1,4 +1,4 @@
-const ProjectController = require("../controllers/projects.controller");
+const ProjectController = require("../controllers/projectmanager.controller");
 
 module.exports = app => {
     app.get("/projects/all", ProjectController.findAllProjects);
