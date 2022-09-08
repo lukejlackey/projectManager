@@ -17,7 +17,10 @@ const NewProduct = () => {
         axios.post("http://localhost:8000/projects/new", {
             ...product
         })            
-            .then(res=>console.log(res))
+            .then(res=>{
+                console.log(res.data.error.errors);
+                setErrors(res.data.error.errors)
+            })
             .catch(err=>console.log(err))
     }
 
@@ -30,7 +33,7 @@ const NewProduct = () => {
                     <input type="text" id="title" onChange={(e) => handleChange(e, 'title')}/>
                     {
                         errors['title']?
-                        <p>{errors['title']}</p>:
+                        <p>{errors['title']['message']}</p>:
                         ''
                     }
                 </div>
@@ -39,7 +42,7 @@ const NewProduct = () => {
                     <input type="number" id="price" onChange={(e) => handleChange(e, 'price')} min='0' step='0.01'/>
                     {
                         errors['price']?
-                        <p>{errors['price']}</p>:
+                        <p>{errors['price']['message']}</p>:
                         ''
                     }
                 </div>
@@ -48,7 +51,7 @@ const NewProduct = () => {
                     <input type="text" id="description" onChange={(e) => handleChange(e, 'description')}/>
                     {
                         errors['description']?
-                        <p>{errors['description']}</p>:
+                        <p>{errors['description']['message']}</p>:
                         ''
                     }
                 </div>
