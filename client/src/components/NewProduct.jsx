@@ -14,7 +14,7 @@ const NewProduct = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:8000/projects/new", {
+        axios.post("http://localhost:8000/products/new", {
             ...product
         })            
             .then(res=>{
