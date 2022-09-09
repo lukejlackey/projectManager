@@ -18,6 +18,7 @@ const NewProduct = () => {
             ...product
         })            
             .then(res=>{
+                setErrors([]);
                 console.log(res.data.error.errors);
                 setErrors(res.data.error.errors)
             })
